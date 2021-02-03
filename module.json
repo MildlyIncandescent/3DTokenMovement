@@ -3,8 +3,9 @@
   "title": "3D Token Movement",
   "description": "A module for simple 3D movement.",
   "author": "MildlyIncandescent",
-  "version": "1.0.0",
-  "minimumCoreVersion": "0.5.0"
-  "manifest": "https://github.com/MildlyIncandescent/3DTokenMovement/blob/main/module.json"
+  "version": "0.0.1",
+  "minimumCoreVersion": "0.5.0",
+  "scripts": ["3dMovement.js"],
+  "manifest": "https://github.com/MildlyIncandescent/3DTokenMovement/blob/main/module.json",
   "download": "https://github.com/MildlyIncandescent/3DTokenMovement/archive/main.zip"
 }
