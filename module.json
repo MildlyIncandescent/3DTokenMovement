@@ -5,6 +5,7 @@
   "author": "MildlyIncandescent",
   "version": "0.0.1",
   "minimumCoreVersion": "0.5.0",
+  "compatibleCoreVersion": "0.7.6",
   "scripts": ["3dMovement.js"],
   "manifest": "https://raw.githubusercontent.com/MildlyIncandescent/3DTokenMovement/master/module.json",
   "download": "https://github.com/MildlyIncandescent/3DTokenMovement/archive/main.zip"
