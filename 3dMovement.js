@@ -40,6 +40,7 @@ class Token3D {
 	}
 	
 	bindTokens(topToken,sideToken) {
+		console.log(topToken);
 		if(this.is3DToken(topToken)) {
 			console.log(T3D.LOG_PREFIX, "Token already bound", topToken);
 			return;
@@ -49,7 +50,6 @@ class Token3D {
 			return;
 		}
 		let boundTokens = {
-			name: topToken.data.name,
 			top : topToken,
 			side: sideToken
 		};
