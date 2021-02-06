@@ -17,11 +17,11 @@ class Token3D {
 		let width = scene.data.width;
 		let spacing = width / 2;
 		if(top) {
-			let sideToken = this.tokens3D.find(binding => binding.top == token).side;
+			let sideToken = this.tokens3D.find(binding => binding.top._id == token.data._id).side;
 			sideToken.transform._x = token.transform._x + spacing;
 		}
 		else{
-			let topToken = this.tokens3D.find(binding => binding.side == token).side;
+			let topToken = this.tokens3D.find(binding => binding.side._id == token.data._id).top;
 			topToken.transform._x = token.transform._x - spacing;
 		}
 	}
@@ -31,12 +31,12 @@ class Token3D {
 	}
 	
 	isTop(token) {
-		return this.tokens3D.find(binding => binding.top == token) != null;
+		return this.tokens3D.find(binding => binding.top._id == token.data._id) != null;
 	}
 	
 		
 	isSide(token) {
-		return this.tokens3D.find(binding => binding.side == token) != null;
+		return this.tokens3D.find(binding => binding.side._id == token.data._id) != null;
 	}
 	
 	bindTokens(topToken,sideToken) {
