@@ -15,7 +15,7 @@ class Token3D {
 		let top = this.isTop(token);
 		if(!this.is3DToken(token)) return;
 		let width = scene.data.width;
-		let spacing = width / 2;
+		let spacing = Math.trunc(width / 2);
 		if(top) {
 			let sideToken = this.tokens3D.find(binding => binding.top._id == token.data._id).side;
 			sideToken.x = token.transform._x + spacing;
