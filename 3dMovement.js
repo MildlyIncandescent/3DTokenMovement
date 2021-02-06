@@ -49,6 +49,7 @@ class Token3D {
 			return;
 		}
 		let boundTokens = {
+			name: topToken.data.name,
 			top : topToken,
 			side: sideToken
 		};
