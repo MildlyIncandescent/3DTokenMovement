@@ -18,8 +18,11 @@ class Token3D {
 		let spacing = Math.trunc(width / 2);
 		if(top) {
 			let sideToken = this.tokens3D.find(binding => binding.top._id == token.data._id).side;
-			console.log(sideToken);
-			sideToken.setPosition(token.x + spacing, sideToken.y, false);
+			if(sideToken == null) return;
+			let updateToken = scene.data.tokens.find(testToken => testToken.data._id == sideToken.id);
+			if(updateToken == null) return;
+			console.log(updateToken);
+			updateToken.setPosition(token.x + spacing, sideToken.y, false);
 		}
 		else{
 			let topToken = this.tokens3D.find(binding => binding.side._id == token.data._id).top;
