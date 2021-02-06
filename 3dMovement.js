@@ -22,3 +22,6 @@ class Token3D {
 		
 	}
 }
+
+console.log(T3D.LOG_PREFIX, "Loaded");
+Hooks.on('init', () => game.token3D = new Token3D());
