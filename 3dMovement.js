@@ -19,12 +19,12 @@ class Token3D {
 		if(top) {
 			let sideToken = this.tokens3D.find(binding => binding.top._id == token.data._id).side;
 			console.log(sideToken);
-			sideToken.x = token.x + spacing;
+			sideToken.setPosition(token.x + spacing, sideToken.y, false);
 		}
 		else{
 			let topToken = this.tokens3D.find(binding => binding.side._id == token.data._id).top;
 			console.log(topToken);
-			topToken.x = token.x - spacing;
+			topToken.setPosition(token.x - spacing, topToken.y, false);
 		}
 	}
 	
