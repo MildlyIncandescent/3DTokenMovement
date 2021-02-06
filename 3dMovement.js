@@ -12,39 +12,41 @@ class Token3D {
 	
 	_onTokenUpdate(scene, token, update, options, userId) {
 		console.log(T3D.LOG_PREFIX, "Updating Token");
-		let top = isTop(token);
-		if(!is3DToken(token)) return;
+		let top = this.isTop(token);
+		if(!this.is3DToken(token)) return;
 		let width = scene.data.width;
 		let spacing = width / 2;
 		if(top) {
-			let sideToken = tokens3D.find(binding => binding.top == token).side;
+			let sideToken = this.tokens3D.find(binding => binding.top == token).side;
 			sideToken.transform._x = token.transform._x + spacing;
 		}
 		else{
-			let topToken = tokens3D.find(binding => binding.side == token).side;
+			let topToken = this.tokens3D.find(binding => binding.side == token).side;
 			topToken.transform._x = token.transform._x - spacing;
 		}
 	}
 	
 	is3DToken(token) {
-		return this.tokens3D && isTop(token) || isSide(token);
+		return this.tokens3D && this.isTop(token) || this.isSide(token);
 	}
 	
 	isTop(token) {
-		return tokens3D.find(binding => binding.top == token) != null;
+		return this.tokens3D.find(binding => binding.top == token) != null;
 	}
 	
 		
 	isSide(token) {
-		return tokens3D.find(binding => binding.side == token) != null;
+		return this.tokens3D.find(binding => binding.side == token) != null;
 	}
 	
 	bindTokens(topToken,sideToken) {
-		if(is3DToken(topToken)) {
+		if(this.is3DToken(topToken)) {
 			console.log(T3D.LOG_PREFIX, "Token already bound", topToken);
+			return;
 		}
-		if(is3DToken(sideToken)) {
+		if(this.is3DToken(sideToken)) {
 			console.log(T3D.LOG_PREFIX, "Token already bound", sideToken);
+			return;
 		}
 		let boundTokens = {
 			top : topToken,
