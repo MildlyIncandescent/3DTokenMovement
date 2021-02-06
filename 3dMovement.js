@@ -1,4 +1,4 @@
-const T3D {
+const T3D = {
 	SCOPE: "3d-token-movement",
 	SETTING_AREA_WIDTH: "area width",
 	LOG_PREFIX: "3D Token Movement | " 
