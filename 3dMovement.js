@@ -18,7 +18,7 @@ class Token3D {
 		console.log(T3D.LOG_PREFIX, "Initialized");
 	}
 	
-	_onTokenUpdate() {
+	_onTokenUpdate(scene, token, update, options, userId) {
 		
 	}
 }
