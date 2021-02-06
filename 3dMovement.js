@@ -11,7 +11,7 @@ class Token3D {
 			name: "3D Area Width",
 			hint: "",
 			config: true,
-			type: Integer,
+			type: int,
 			default: 1200
 		});
 		Hooks.on("updateToken", this._onUpdateToken.bind(this));
