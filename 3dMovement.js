@@ -7,10 +7,11 @@ class Token3D {
 	constructor () {
 		Hooks.on("updateToken", this._onUpdateToken);
 		console.log(T3D.LOG_PREFIX, "Initialized");
-		this.tokens3D = [];
+		this.tokens3D = new Array();
 	}
 	
 	_onTokenUpdate(scene, token, update, options, userId) {
+		console.log(T3D.LOG_PREFIX, "Updating Token");
 		let top = isTop(token);
 		if(!is3DToken(token)) return;
 		let width = scene.data.width;
@@ -26,7 +27,7 @@ class Token3D {
 	}
 	
 	is3DToken(token) {
-		return isTop(token) || isSide(token);
+		return this.tokens3D && isTop(token) || isSide(token);
 	}
 	
 	isTop(token) {
