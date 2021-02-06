@@ -7,13 +7,6 @@ const T3D = {
 class Token3D {
 	
 	constructor () {
-		game.settings.register(T3D.SCOPE, T3D.SETTING_AREA_WIDTH, { 
-			name: "3D Area Width",
-			hint: "",
-			config: true,
-			type: int,
-			default: 1200
-		});
 		Hooks.on("updateToken", this._onUpdateToken.bind(this));
 		console.log(T3D.LOG_PREFIX, "Initialized");
 	}
