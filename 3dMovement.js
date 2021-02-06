@@ -18,10 +18,12 @@ class Token3D {
 		let spacing = Math.trunc(width / 2);
 		if(top) {
 			let sideToken = this.tokens3D.find(binding => binding.top._id == token.data._id).side;
+			console.log(sideToken);
 			sideToken.x = token.x + spacing;
 		}
 		else{
 			let topToken = this.tokens3D.find(binding => binding.side._id == token.data._id).top;
+			console.log(topToken);
 			topToken.x = token.x - spacing;
 		}
 	}
