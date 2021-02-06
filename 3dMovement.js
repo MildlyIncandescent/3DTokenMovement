@@ -1,18 +1,49 @@
 const T3D = {
 	SCOPE: "3d-token-movement",
-	SETTING_AREA_WIDTH: "area width",
 	LOG_PREFIX: "3D Token Movement | " 
 };
 
 class Token3D {
-	
 	constructor () {
 		Hooks.on("updateToken", this._onUpdateToken.bind(this));
 		console.log(T3D.LOG_PREFIX, "Initialized");
+		this.tokens3D = [];
 	}
 	
 	_onTokenUpdate(scene, token, update, options, userId) {
+		let top = isTop(token);
+		if(!is3DToken(token)) return;
+		let width = scene.data.width;
+		let spacing = width / 2;
+		if(top) {
+			let sideToken = tokens3D.find(binding => binding.top == token).side;
+			sideToken.transform._x = token.transform._x + spacing;
+		}
+		else{
+			let topToken = tokens3D.find(binding => binding.side == token).side;
+			topToken.transform._x = token.transform._x - spacing;
+		}
+	}
+	
+	is3DToken(token) {
+		return isTop(token) || isSide(token);
+	}
+	
+	isTop(token) {
+		return tokens3D.find(binding => binding.top == token) != null;
+	}
+	
 		
+	isSide(token) {
+		return tokens3D.find(binding => binding.side == token) != null;
+	}
+	
+	bindTokens(topToken,sideToken) {
+		let boundTokens = {
+			top : topToken,
+			side: sideToken
+		};
+		this.tokens3D.push(boundTokens);
 	}
 }
 
