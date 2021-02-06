@@ -5,7 +5,7 @@ const T3D = {
 
 class Token3D {
 	constructor () {
-		Hooks.on("updateToken", this._onUpdateToken.bind(this));
+		Hooks.on("updateToken", this._onUpdateToken);
 		console.log(T3D.LOG_PREFIX, "Initialized");
 		this.tokens3D = [];
 	}
